@@ -72,7 +72,7 @@ jobs:
         if: steps.parse.outputs.valid == 'true' && steps.check.outputs.exists == 'false'
         run: |
           NAME="${{ steps.parse.outputs.name }}"
-          git config user.name "pscale-commons"
+          git config user.name "beach-commons"
           git config user.email "commons@pscale.dev"
           git add "instances/$NAME"
           git commit -m "Register $NAME as tenant"
@@ -88,7 +88,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: context.issue.number,
-              body: `Registered **${name}** as tenant.\n\nHome: \`instances/${name}/\`\nPassport: \`instances/${name}/passport.json\`\nBlocks: \`instances/${name}/blocks/\`\n\nFetchable at:\n\`\`\`\nhttps://raw.githubusercontent.com/pscale-commons/pscale-commons/main/instances/${name}/passport.json\n\`\`\``
+              body: `Registered **${name}** as tenant.\n\nHome: \`instances/${name}/\`\nPassport: \`instances/${name}/passport.json\`\nBlocks: \`instances/${name}/blocks/\`\n\nFetchable at:\n\`\`\`\nhttps://raw.githubusercontent.com/beach-commons/pscale-commons/main/instances/${name}/passport.json\n\`\`\``
             });
             await github.rest.issues.update({
               owner: context.repo.owner,
